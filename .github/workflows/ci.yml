@@ -1,0 +1,44 @@
+name: HTML CSS JS Quality Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Check HTML
+        run: npx --yes htmlhint index.html
+
+      - name: Check JavaScript Syntax
+        run: node --check script.js
+
+      - name: Fix HTML Formatting
+        run: npx --yes prettier@3.10.1 --write index.html
+
+      - name: Check HTML Formatting
+        run: npx --yes prettier@3.10.1 --check index.html
+
+      - name: Fix CSS Formatting
+        run: npx --yes prettier@3.10.1 --write style.css
+
+      - name: Check CSS Formatting
+        run: npx --yes prettier@3.10.1 --check style.css
+
+      - name: Fix JS Formatting
+        run: npx --yes prettier@3.10.1 --write script.js
+
+      - name: Check JS Formatting
+        run: npx --yes prettier@3.10.1 --check script.js
