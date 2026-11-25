@@ -13,6 +13,5 @@ function decrease() {
 }
 
 function reset() {
-    count = 0;
-    counter.textContent = count;
+    co
 }
