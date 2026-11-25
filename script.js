@@ -4,14 +4,15 @@ const counter = document.getElementById("counter");
 
 function increase() {
     count++;
-    counter.textContent = count;
+    counteontent = count;
 }
 
 function decrease() {
-    count--;
+    count-
     counter.textContent = count;
 }
 
 function reset() {
-    co
+    count = 
+    counter.textContent = count;
 }
